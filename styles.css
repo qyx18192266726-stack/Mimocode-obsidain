@@ -1,0 +1,208 @@
+/* MiMo Code Plugin Styles */
+
+/* Main container */
+.mimocode-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Header */
+.mimocode-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--background-modifier-border);
+  background-color: var(--background-secondary);
+  flex-shrink: 0;
+}
+
+.mimocode-header-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+}
+
+.mimocode-header-title svg {
+  width: 16px;
+  height: 16px;
+}
+
+.mimocode-header-actions {
+  display: flex;
+  gap: 4px;
+}
+
+.mimocode-header-actions button {
+  background: transparent;
+  border: none;
+  padding: 4px 6px;
+  border-radius: 4px;
+  cursor: pointer;
+  color: var(--text-muted);
+}
+
+.mimocode-header-actions button:hover {
+  background-color: var(--background-modifier-hover);
+  color: var(--text-normal);
+}
+
+.mimocode-header-actions button svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* iframe container */
+.mimocode-iframe-container {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+}
+
+.mimocode-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background-color: var(--background-primary);
+}
+
+/* Status container (for stopped/starting/error states) */
+.mimocode-status-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 24px;
+  text-align: center;
+  gap: 16px;
+}
+
+.mimocode-status-icon {
+  width: 48px;
+  height: 48px;
+  color: var(--text-muted);
+}
+
+.mimocode-status-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.mimocode-status-container h3 {
+  margin: 0;
+  font-size: 1.2em;
+}
+
+.mimocode-status-message {
+  color: var(--text-muted);
+  max-width: 300px;
+  margin: 0;
+}
+
+.mimocode-status-container button {
+  margin-top: 8px;
+}
+
+.mimocode-status-container button + button {
+  margin-left: 8px;
+}
+
+/* Error state */
+.mimocode-status-container.mimocode-error .mimocode-status-icon {
+  color: var(--text-error);
+}
+
+/* Loading spinner */
+.mimocode-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mimocode-spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid var(--background-modifier-border);
+  border-top-color: var(--interactive-accent);
+  border-radius: 50%;
+  animation: mimocode-spin 1s linear infinite;
+}
+
+@keyframes mimocode-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Settings tab styles */
+.mimocode-settings-status {
+  margin-top: 12px;
+  padding: 12px;
+  background-color: var(--background-secondary);
+  border-radius: 8px;
+}
+
+.mimocode-status-line {
+  margin-bottom: 8px;
+}
+
+.mimocode-status-line a {
+  color: var(--text-accent);
+}
+
+.mimocode-status-badge {
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.85em;
+  font-weight: 500;
+}
+
+.mimocode-status-badge.status-stopped {
+  background-color: var(--background-modifier-border);
+  color: var(--text-muted);
+}
+
+.mimocode-status-badge.status-starting {
+  background-color: var(--text-warning);
+  color: var(--background-primary);
+}
+
+.mimocode-status-badge.status-running {
+  background-color: var(--text-success);
+  color: var(--background-primary);
+}
+
+.mimocode-status-badge.status-error {
+  background-color: var(--text-error);
+  color: var(--background-primary);
+}
+
+.mimocode-settings-buttons {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.mimocode-status-waiting {
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* Error details in settings */
+.mimocode-error-details {
+  margin-top: 12px;
+  padding: 10px 12px;
+  background-color: var(--background-secondary);
+  border-radius: 6px;
+  border-left: 3px solid var(--text-error);
+}
+
+.mimocode-error-text {
+  color: var(--text-error);
+  font-size: 0.9em;
+  line-height: 1.4;
+}
