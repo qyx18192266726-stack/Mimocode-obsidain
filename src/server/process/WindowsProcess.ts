@@ -1,4 +1,6 @@
 import { ChildProcess, spawn, SpawnOptions } from "child_process";
+import { existsSync } from "fs";
+import { isAbsolute } from "path";
 import { MiMoCodeProcess } from "./MiMoCodeProcess";
 
 export class WindowsProcess implements MiMoCodeProcess {
@@ -114,12 +116,15 @@ export class WindowsProcess implements MiMoCodeProcess {
   }
 
   async verifyCommand(command: string): Promise<string | null> {
-    try {
-      await this.execAsync(`where "${command}"`);
-      return null;
-    } catch {
+    // If it's an absolute path, just check if file exists
+    if (isAbsolute(command)) {
+      if (existsSync(command)) {
+        return null;
+      }
       return `Executable not found at '${command}'. Check Settings → MiMo Code path, or click "Autodetect"`;
     }
+    // For non-absolute paths, let spawn handle it (will fire ENOENT if not found)
+    return null;
   }
 
   private async waitForExit(
