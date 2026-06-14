@@ -82,7 +82,7 @@ export class MiMoCodeSettingTab extends PluginSettingTab {
         .setDesc("Custom shell command to start MiMo Code.")
         .addTextArea((text) => {
           text
-            .setPlaceholder("mimocode serve --port 14096 --hostname 127.0.0.1 --cors app://obsidian.md")
+            .setPlaceholder("mimo serve --port 14096 --hostname 127.0.0.1 --cors app://obsidian.md")
             .setValue(this.settings.customCommand)
             .onChange(async (value) => {
               this.settings.customCommand = value;
@@ -97,7 +97,7 @@ export class MiMoCodeSettingTab extends PluginSettingTab {
         .setName("MiMo Code executable path")
         .addText((text) =>
           text
-            .setPlaceholder("mimocode")
+            .setPlaceholder("mimo")
             .setValue(this.settings.mimocodePath)
             .onChange(async (value) => {
               this.settings.mimocodePath = value;
@@ -109,14 +109,14 @@ export class MiMoCodeSettingTab extends PluginSettingTab {
         button
           .setButtonText("Autodetect")
           .onClick(async () => {
-            const detectedPath = ExecutableResolver.resolve("mimocode");
-            if (detectedPath && detectedPath !== "mimocode") {
+            const detectedPath = ExecutableResolver.resolve("mimo");
+            if (detectedPath && detectedPath !== "mimo") {
               this.settings.mimocodePath = detectedPath;
               await this.onSettingsChange();
               this.display();
               new Notice(`MiMo Code executable found at ${detectedPath}`);
             } else {
-              new Notice("Could not find mimocode. Please check your installation.");
+              new Notice("Could not find mimo. Please check your installation.");
             }
           });
       });

@@ -62,8 +62,10 @@ export class ExecutableResolver {
     } else if (currentPlatform === "win32") {
       const localAppData = process.env.LOCALAPPDATA || join(homeDir, "AppData", "Local");
       const userProfile = process.env.USERPROFILE || homeDir;
+      const appDataRoaming = process.env.APPDATA || join(homeDir, "AppData", "Roaming");
 
       searchDirs.push(
+        join(appDataRoaming, "npm"),
         join(localAppData, "mimocode", "bin"),
         join(userProfile, ".bun", "bin"),
         join(userProfile, ".local", "bin")

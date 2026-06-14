@@ -162,18 +162,18 @@ export default class MiMoCodePlugin extends Plugin {
       return;
     }
 
-    console.log("[MiMoCode] Attempting to autodetect mimocode executable...");
+    console.log("[MiMoCode] Attempting to autodetect mimo executable...");
 
-    const detectedPath = ExecutableResolver.resolve("mimocode");
+    const detectedPath = ExecutableResolver.resolve("mimo");
 
-    if (detectedPath && detectedPath !== "mimocode") {
-      console.log("[MiMoCode] Autodetected mimocode at:", detectedPath);
+    if (detectedPath && detectedPath !== "mimo") {
+      console.log("[MiMoCode] Autodetected mimo at:", detectedPath);
       this.settings.mimocodePath = detectedPath;
       await this.saveData(this.settings);
       new Notice(`MiMo Code executable found at ${detectedPath}`);
     } else {
-      console.log("[MiMoCode] Could not autodetect mimocode executable");
-      new Notice("Could not find mimocode. Please check Settings");
+      console.log("[MiMoCode] Could not autodetect mimo executable");
+      new Notice("Could not find mimo. Please check Settings");
     }
   }
 

@@ -19,7 +19,7 @@ export const DEFAULT_SETTINGS: MiMoCodeSettings = {
   port: 14096,
   hostname: "127.0.0.1",
   autoStart: false,
-  mimocodePath: "mimocode",
+  mimocodePath: "mimo",
   projectDirectory: "",
   startupTimeout: 45000,
   defaultViewLocation: "sidebar",

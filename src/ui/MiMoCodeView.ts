@@ -1,4 +1,4 @@
-import { App, WorkspaceLeaf, setIcon } from "obsidian";
+import { App, ItemView, WorkspaceLeaf, setIcon } from "obsidian";
 import { MIMOCODE_VIEW_TYPE } from "../types";
 import { MIMOCODE_ICON_NAME } from "../icons";
 import type MiMoCodePlugin from "../main";
