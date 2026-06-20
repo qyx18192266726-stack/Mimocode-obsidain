@@ -115,14 +115,13 @@ export class ServerManager extends EventEmitter {
       this.process = this.processImpl.start(
         executablePath,
         [
-          "web",
+          "serve",
           "--port",
           this.settings.port.toString(),
           "--hostname",
           this.settings.hostname,
           "--cors",
           "app://obsidian.md",
-          "--trust",
         ],
         spawnOptions
       );
@@ -219,8 +218,7 @@ export class ServerManager extends EventEmitter {
 
   private async checkServerHealth(): Promise<boolean> {
     try {
-      const baseUrl = `http://${this.settings.hostname}:${this.settings.port}`;
-      const response = await fetch(`${baseUrl}/global/health`, {
+      const response = await fetch(`${this.getUrl()}/global/health`, {
         method: "GET",
         signal: AbortSignal.timeout(2000),
       });
