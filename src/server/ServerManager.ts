@@ -115,7 +115,7 @@ export class ServerManager extends EventEmitter {
       this.process = this.processImpl.start(
         executablePath,
         [
-          "serve",
+          "web",
           "--port",
           this.settings.port.toString(),
           "--hostname",
