@@ -219,7 +219,8 @@ export class ServerManager extends EventEmitter {
 
   private async checkServerHealth(): Promise<boolean> {
     try {
-      const response = await fetch(`${this.getUrl()}/global/health`, {
+      const baseUrl = `http://${this.settings.hostname}:${this.settings.port}`;
+      const response = await fetch(`${baseUrl}/global/health`, {
         method: "GET",
         signal: AbortSignal.timeout(2000),
       });
