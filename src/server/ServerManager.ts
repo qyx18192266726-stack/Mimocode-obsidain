@@ -122,6 +122,7 @@ export class ServerManager extends EventEmitter {
           this.settings.hostname,
           "--cors",
           "app://obsidian.md",
+          "--trust",
         ],
         spawnOptions
       );
